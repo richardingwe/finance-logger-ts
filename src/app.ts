@@ -1,32 +1,19 @@
-interface IsPerson {
-	name: string;
-	age: number;
-	speak(a: string): void;
-	spend(a: number): number;
-}
-
-const me: IsPerson = {
-	name: 'Richard',
-	age: 22,
-	speak(text: string): void {
-		console.log(text);
-	},
-	spend(amount: number): number {
-		return amount;
-	},
-};
-
 import { Invoice } from './classes/invoice.js';
+import { Payment } from './classes/payment.js';
+import { HasFormatter } from './interfaces/HasFormatter.js';
 
-const invOne = new Invoice('mario', 'work on the mario website', 250);
-const invTwo = new Invoice('paul', 'work on the paul house', 550);
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
 
-let invoices: Invoice[] = [];
+// const invOne = new Invoice('mario', 'work on the mario website', 250);
+// const invTwo = new Invoice('paul', 'work on the paul house', 550);
+
+// let invoices: Invoice[] = [];
 
 //form
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
-const type = document.querySelector('#type') as HTMLSelectElement;
+const type = document.querySelector('#type') as HTMLInputElement;
 const toForm = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
@@ -35,5 +22,12 @@ const amount = document.querySelector('#amount') as HTMLInputElement;
 form.addEventListener('submit', (e: Event) => {
 	e.preventDefault();
 
-	console.log(type.value, toForm.value, details.value, amount.valueAsNumber);
+	let doc: HasFormatter;
+	if (type.value === 'invoice') {
+		doc = new Invoice(toForm.value, details.value, amount.valueAsNumber);
+	} else {
+		doc = new Payment(toForm.value, details.value, amount.valueAsNumber);
+	}
+
+	console.log(doc);
 });
