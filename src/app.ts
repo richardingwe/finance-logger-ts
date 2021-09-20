@@ -10,6 +10,7 @@ const list = new ListTemplate(ul);
 //form
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
+//input
 const type = document.querySelector('#type') as HTMLInputElement;
 const toForm = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
