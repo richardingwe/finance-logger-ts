@@ -6,6 +6,7 @@ const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 //form
 const form = document.querySelector('.new-item-form');
+//input
 const type = document.querySelector('#type');
 const toForm = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
