@@ -31,7 +31,7 @@ form.addEventListener('submit', (e: Event) => {
 });
 
 //generics
-const addUID = (obj: object) => {
+const addUID = <T extends object>(obj: T) => {
 	let uid = Math.floor(Math.random() * 100);
 	return { ...obj, uid };
 };
