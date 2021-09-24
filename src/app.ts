@@ -39,3 +39,10 @@ const addUID = <T extends object>(obj: T) => {
 let docOne = addUID({ name: 'Richard', age: 40 });
 
 console.log(docOne);
+
+//  with interfaces
+interface Resource<T> {
+	uid: number;
+	resourceName: string;
+	data: T;
+}
