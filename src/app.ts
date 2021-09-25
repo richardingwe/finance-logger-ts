@@ -30,34 +30,16 @@ form.addEventListener('submit', (e: Event) => {
 	list.render(doc, type.value, 'end');
 });
 
-//generics
-const addUID = <T extends object>(obj: T) => {
-	let uid = Math.floor(Math.random() * 100);
-	return { ...obj, uid };
-};
+// tuples
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1] = 'yoshi';
+arr = [30, false, 'yoshi'];
 
-enum ResourceType {
-	BOOK,
-	AUTHOR,
-	FILM,
-	DIRECTOR,
-}
-interface Resource<T> {
-	uid: number;
-	resourceType: ResourceType;
-	data: T;
-}
+let tup: [string, number, boolean] = ['ryu', 25, true];
+// tup[0] = false;
+tup[0] = 'ken';
 
-const docOne: Resource<object> = {
-	uid: 1,
-	resourceType: ResourceType.BOOK,
-	data: { title: 'name of the wind' },
-};
-const docTwo: Resource<object> = {
-	uid: 10,
-	resourceType: ResourceType.DIRECTOR,
-	data: { title: 'name of the wind' },
-};
-
-console.log(docOne);
-console.log(docTwo);
+let student: [string, number];
+//student = [23564, 'chun-li'];
+student = ['chun-li', 23564];
