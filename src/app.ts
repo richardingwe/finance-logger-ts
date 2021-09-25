@@ -36,13 +36,28 @@ const addUID = <T extends object>(obj: T) => {
 	return { ...obj, uid };
 };
 
-let docOne = addUID({ name: 'Richard', age: 40 });
-
-console.log(docOne);
-
-//  with interfaces
+enum ResourceType {
+	BOOK,
+	AUTHOR,
+	FILM,
+	DIRECTOR,
+}
 interface Resource<T> {
 	uid: number;
-	resourceName: string;
+	resourceType: ResourceType;
 	data: T;
 }
+
+const docOne: Resource<object> = {
+	uid: 1,
+	resourceType: ResourceType.BOOK,
+	data: { title: 'name of the wind' },
+};
+const docTwo: Resource<object> = {
+	uid: 10,
+	resourceType: ResourceType.DIRECTOR,
+	data: { title: 'name of the wind' },
+};
+
+console.log(docOne);
+console.log(docTwo);
